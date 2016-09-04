@@ -13,7 +13,7 @@ from tornado.httpclient import AsyncHTTPClient
 
 
 class RemoteCSVAuthenticator(Authenticator):
-    remote_url = Unicode(
+    csv_url = Unicode(
         help='URL to hit to fetch CSV containing authentication info',
         config=True
     )
@@ -25,9 +25,9 @@ class RemoteCSVAuthenticator(Authenticator):
     )
 
     @gen.coroutine
-    def get_remote_csv(self, remote_url):
+    def get_remote_csv(self):
         http_client = AsyncHTTPClient()
-        response = yield http_client.fetch(self.remote_url)
+        response = yield http_client.fetch(self.csv_url)
         reader = csv.DictReader(io.TextIOWrapper(response.buffer, encoding='utf-8'))
         return {
             r['username']: {'password_hash': r['password_hash']}
@@ -44,7 +44,7 @@ class RemoteCSVAuthenticator(Authenticator):
                 del self._userinfo
         if not hasattr(self, '_userinfo'):
             self.log.info('Fetching CSV from URL')
-            self._userinfo = yield self.get_remote_csv(self.remote_url)
+            self._userinfo = yield self.get_remote_csv()
             self._last_updated = datetime.now()
         return self._userinfo
 
