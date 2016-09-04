@@ -19,7 +19,7 @@ class RemoteCSVAuthenticator(Authenticator):
     )
 
     cache_seconds = Int(
-        default=5,
+        default=300,
         help='Number of seconds to cache the CSV file before re-fetching',
         config=True
     )
