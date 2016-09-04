@@ -10,9 +10,9 @@ The authenticator expects the CSV to be in the following format:
 
 | username  | password_hash        |
 | ----------|----------------------|
-| username1 | <hex-encoded-pbkdf2> |
-| username2 | <hex-encoded-pbkdf2> |
-| usernamen | <hex-encoded-pbkdf2> |
+| username1 | *hex-encoded-pbkdf2* |
+| username2 | *hex-encoded-pbkdf2* |
+| usernamen | *hex-encoded-pbkdf2* |
 
 The headers must say `username` and `password_hash`. The username can be any
 identifier, and the password_hash must be a hex representation of a [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2)
