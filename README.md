@@ -19,9 +19,6 @@ identifier, and the password_hash must be a hex representation of a [PBKDF2](htt
 derived hash of the password, using the username as salt. The PBKDF2 iteration
 count is configurable, and defaults to 1000.
 
-One popular way to maintain this CSV file is with Google Sheets and the
-JupyterHub RemoteCSV Google Sheets Helper. 
-
 ## Security Notes ##
 
 If you need your JupyterHub installation to be highly secure, do *not* use this
