@@ -1,3 +1,10 @@
+# Use nativeauthenticator instead
+
+According to [this post on the Jupyter](https://discourse.jupyter.org/t/keep-jupyterhub-usernames-passwords-in-a-google-sheet/4329/2):
+> People shouldn’t use this [remotecsv] authenticator.
+> [nativeauthenticator](https://github.com/jupyterhub/nativeauthenticator)
+> is much better, and you should use that instead.
+
 # JupyterHub Remote CSV Authenticator #
 
 Simple authenticator for [JupyterHub](http://github.com/jupyter/jupyterhub/)
